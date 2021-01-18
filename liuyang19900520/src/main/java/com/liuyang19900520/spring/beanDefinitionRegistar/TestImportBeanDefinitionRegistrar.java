@@ -25,11 +25,15 @@ public class TestImportBeanDefinitionRegistrar implements ImportBeanDefinitionRe
 
 	@Override
 	public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
-
+		//定义一个builder，定义为我们需要的这个dao的类型
 		BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(ImportBeanDefinitionRegistrarDao.class);
+		//获取这个BeanDefinition
 		GenericBeanDefinition beanDefinition = (GenericBeanDefinition) beanDefinitionBuilder.getBeanDefinition();
-		beanDefinition.getConstructorArgumentValues().addGenericArgumentValue("com.liuyang19900520.spring.dao.ImportBeanDefinitionRegistrarDao");
+
+		//我们需要为这个BeanDefinition的构造方法上，添加一个参数，
+		beanDefinition.getConstructorArgumentValues().addGenericArgumentValue(ImportBeanDefinitionRegistrarDao.class);
 		beanDefinition.setBeanClass(ImportBeanDefinitionRegistrarFactoryBean.class);
 		registry.registerBeanDefinition("liuyang", beanDefinition);
+
 	}
 }

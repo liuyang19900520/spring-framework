@@ -16,7 +16,6 @@ public class ImportBeanDefinitionRegistrarInvocationHandler implements Invocatio
 	@Override
 	public Object invoke(Object o, Method method, Object[] objects) throws Throwable {
 		System.out.println("================ImportBeanDefinitionRegistrarInvocationHandler");
-
 		return null;
 	}
 }
