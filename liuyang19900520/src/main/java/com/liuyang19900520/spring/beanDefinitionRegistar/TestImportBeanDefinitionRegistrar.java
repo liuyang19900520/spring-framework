@@ -29,11 +29,11 @@ public class TestImportBeanDefinitionRegistrar implements ImportBeanDefinitionRe
 		BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(ImportBeanDefinitionRegistrarDao.class);
 		//获取这个BeanDefinition
 		GenericBeanDefinition beanDefinition = (GenericBeanDefinition) beanDefinitionBuilder.getBeanDefinition();
-
-		//我们需要为这个BeanDefinition的构造方法上，添加一个参数，
+		//我们需要为这个BeanDefinition创建对象时的构造方法上，添加一个参数，这个参数类型是我们要传递给FactoryBean的，实现我们一个FactoryBean，能够对应多个接口的需求
 		beanDefinition.getConstructorArgumentValues().addGenericArgumentValue(ImportBeanDefinitionRegistrarDao.class);
+		//为BeanDefinition的beanClass设置为我们手写的FactoryBean，这样可以通过getObject方法可到代理对象
 		beanDefinition.setBeanClass(ImportBeanDefinitionRegistrarFactoryBean.class);
+		//注册到我们的beanMap中
 		registry.registerBeanDefinition("liuyang", beanDefinition);
-
 	}
 }

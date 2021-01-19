@@ -1,6 +1,5 @@
 package com.liuyang19900520.spring.proxy;
 
-import com.liuyang19900520.spring.dao.ImportBeanDefinitionRegistrarDao;
 import org.springframework.beans.factory.FactoryBean;
 
 import java.lang.reflect.Proxy;
@@ -29,8 +28,9 @@ public class ImportBeanDefinitionRegistrarFactoryBean implements FactoryBean<Obj
 
 	@Override
 	public Object getObject() throws Exception {
-		//创建代理对象
+		//传入class类型
 		Class<?>[] classes = new Class<?>[]{clazz};
+		//创建代理对象
 		Object o = Proxy.newProxyInstance(this.getClass().getClassLoader(), classes, new ImportBeanDefinitionRegistrarInvocationHandler());
 		return o;
 	}
