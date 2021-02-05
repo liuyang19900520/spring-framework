@@ -1,17 +1,12 @@
 package com.liuyang19900520.spring.beanDefinitionRegistar;
 
-import com.liuyang19900520.spring.Liuyang19900520Application;
 import com.liuyang19900520.spring.dao.ImportBeanDefinitionRegistrarDao;
 import com.liuyang19900520.spring.proxy.ImportBeanDefinitionRegistrarFactoryBean;
-import com.liuyang19900520.spring.proxy.ImportBeanDefinitionRegistrarInvocationHandler;
-import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.core.type.AnnotationMetadata;
-
-import java.lang.reflect.Proxy;
 
 /**
  * <p>

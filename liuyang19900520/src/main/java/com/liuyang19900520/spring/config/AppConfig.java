@@ -1,10 +1,8 @@
 package com.liuyang19900520.spring.config;
 
 import com.liuyang19900520.spring.beanDefinitionRegistar.TestImportBeanDefinitionRegistrar;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.stereotype.Component;
+import com.liuyang19900520.spring.dao.Index2Dao;
+import org.springframework.context.annotation.*;
 
 /**
  * <p>
@@ -15,6 +13,13 @@ import org.springframework.stereotype.Component;
  * @since 2021/01/03
  */
 @Configuration
-@Import(TestImportBeanDefinitionRegistrar.class)
+@EnableAspectJAutoProxy
+@EnableMBeanExport
+//@Import(TestImportBeanDefinitionRegistrar.class)
 public class AppConfig {
+
+	@Bean
+	public Index2Dao getIndex2Dao() {
+		return new Index2Dao();
+	}
 }
